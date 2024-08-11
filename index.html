@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <title>Library By 5OH3L</title>
+</head>
+
+<body>
+    <div id="input-background"></div>
+    <div id="input-container">
+        <h1>Enter Book Details</h1>
+        <div class="input">
+            <div class="input-title user-input">
+                <label for="book-title"><h3>Title : </h3></label><input type="text" name="book-title" id="book-title">
+            </div>
+            <div class="input-author user-input">
+                <label for="book-author"><h3>Author : </h3></label><input type="text" name="book-author" id="book-author">
+            </div>
+            <div class="input-pages user-input">
+                <label for="book-pages"><h3>Pages : </h3></label><input type="number" name="book-pages" id="book-pages">
+            </div>
+            <div class="input-read user-input">
+                <h3>Read : </h3>
+                <div class="true-false">
+                    <label for="true">
+                        True
+                        <input type="radio" name="read" id="true">
+                    </label>
+                    <label for="false">
+                        False
+                        <input type="radio" name="read" id="false" checked>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="submit-cancel">
+            <button id="input-confirm">Confirm</button>
+            <button id="input-cancel">Cancel</button>
+        </div>
+    </div>
+    <div id="container">
+        <div id="left">
+            <div class="totalBooks">
+                <h3>Total Book(s) : </h3>
+                <h3 id="total-books">N/A</h3>
+            </div>
+            <h1 id="add-book">
+                ADD BOOK
+            </h1>
+        </div>
+        <div id="right">
+            <!-- <div class="book">
+                <h2 class="title">Title</h2>
+                <div class="author">
+                    <div>Author : </div>
+                    <div class="author-display">Good Author</div>
+                </div>
+                <div class="pages">
+                    <div>Page : </div>
+                    <div class="page-display">59</div>
+                </div>
+                <div class="read">
+                    <div>Read : </div>
+                    <div class="read-display">False</div>
+                </div>
+
+                <div class="bookControl">
+                    <button id="remove">Remove</button>
+                    <button id="read">Read</button>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <script src="./script/script.js"></script>
+</body>
+
+</html>

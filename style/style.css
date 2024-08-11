@@ -1,0 +1,292 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background-color: rgb(135, 206, 235);
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+#container {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 3rem;
+    padding: 1rem;
+    overflow: hidden;
+}
+
+#left,
+#right {
+    border: 2px solid rgba(255, 255, 255, .1);
+    background-color: rgba(255, 255, 255, .3);
+    border-radius: 1rem;
+}
+
+#left {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    justify-content: center;
+    align-items: start;
+    padding: 1rem;
+}
+
+#add-book {
+    background-color: rgba(0, 0, 0, .35);
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 2px solid rgba(255, 255, 255, .6);
+    color: white;
+    cursor: pointer;
+    border-left: .3rem solid skyblue;
+    border-right: .3rem solid skyblue;
+    transition: .3s ease;
+}
+
+#add-book:hover {
+    transform: scale(1.1);
+}
+
+#add-book:active {
+    transform: scale(1.05);
+}
+
+#right {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.author,
+.pages,
+.read {
+    display: flex;
+    justify-content: start;
+    gap: .5rem;
+}
+
+.author>div:first-child,
+.pages>div:first-child,
+.read>div:first-child {
+    font-weight: bold;
+}
+
+.book {
+    background-color: rgba(0, 0, 0, .1);
+    padding: 1rem;
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    border-radius: 1rem;
+    justify-content: center;
+    align-items: start;
+    border: .2rem solid rgba(255, 255, 255, .5);
+    border-left: 2rem solid skyblue;
+    overflow: auto;
+    animation: popIn .5s ease;
+}
+
+.bookControl {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+#remove {
+    background-color: red;
+    padding: .3rem .5rem;
+    color: white;
+    border-radius: 1rem;
+    outline: none;
+    border: none;
+    transition: .3s ease;
+}
+
+#remove:hover,
+#read:hover {
+    transform: scale(1.1);
+}
+
+#remove:active,
+#read:active {
+    transform: scale(1.05);
+}
+
+#read {
+    background-color: #00FF00;
+    outline: none;
+    border: none;
+    border-radius: 1rem;
+    transition: .3s ease;
+}
+
+#remove,
+#read {
+    border: 2px solid rgba(255, 255, 255, .6);
+    color: wih;
+}
+
+/* Input Popup */
+#input-background {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, .2);
+    backdrop-filter: blur(.3rem);
+    z-index: 5;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#input-container {
+    position: absolute;
+    background-color: rgba(255, 255, 255, .5);
+    padding: 1rem;
+    height: 50vh;
+    width: 40vw;
+    display: grid;
+    gap: 1rem;
+    border: 2px solid rgba(255, 255, 255, .6);
+    border-radius: 1rem;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    opacity: 0;
+    top: -50%;
+    will-change: transform;
+}
+
+#input-container h1 {
+    justify-self: center;
+}
+
+.input {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.user-input {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    align-items: center;
+}
+
+.user-input input {
+    padding: .3rem 1rem;
+    outline: none;
+    border: 2px solid rgba(0, 0, 0, .1);
+    border-radius: 1rem;
+}
+
+.true-false {
+    display: flex;
+    gap: 1rem;
+}
+
+.submit-cancel {
+    display: flex;
+    gap: 1rem;
+}
+
+#input-confirm,
+#input-cancel {
+    padding: .5rem 1rem;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+#input-background.close {
+    animation: opacity1-0 .5s ease;
+}
+
+#input-background.show {
+    animation: opacity0-1 .5s ease forwards;
+    pointer-events: all;
+}
+
+#input-container.show {
+    display: grid;
+    animation: slideIn .5s ease forwards;
+}
+
+#input-container.close {
+    animation: slideOut .5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        top: -50%;
+    }
+
+    to {
+        opacity: 1;
+        top: 50%;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        top: 50%;
+    }
+
+    to {
+        opacity: 0;
+        top: -50%;
+    }
+}
+
+@keyframes opacity0-1 {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes opacity1-0 {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.totalBooks {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+@keyframes popIn {
+    from{
+        opacity: 0;
+        transform: scale(0);
+    }
+    50%{
+        transform: scale(1.05);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);;
+    }
+}
