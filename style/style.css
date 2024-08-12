@@ -370,7 +370,7 @@ body {
     }
 }
 
-/* SCROLL TEXT ANIMATION TEST */
+/* Text Overflow Animation */
 .scroll {
     animation: scroll-left-right var(--scroll-duration, 10s) linear infinite;
 }
